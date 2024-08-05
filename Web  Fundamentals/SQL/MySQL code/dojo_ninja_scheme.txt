@@ -1,0 +1,58 @@
+use dojo_ninja_scheme;
+TRUNCATE TABLE dojo;
+TRUNCATE TABLE ninjas;
+
+-- #1 Create 3 new dojos  
+insert into dojo (name , created_at , updated_at)
+value
+( 'DODO' , now() ,now()),
+( 'Dandon' , now() ,now()),
+( 'Dana' , now() ,now());
+select *  from dojo;
+
+-- #2 Delete the 3 dojos you just created 
+Set SQL_SAFE_UPDATES =0;
+delete from dojo
+where name IN ('DODO' , 'Dandon','Dana');
+select * from dojo;
+Set SQL_SAFE_UPDATES =1;
+
+
+-- #3  Create 3 more dojos  
+insert into dojo (name , created_at , updated_at)
+value
+( 'DODO' , now() ,now()),
+( 'Dandon' , now() ,now()),
+( 'Dana' , now() ,now());
+select *  from dojo;
+
+-- #4  Create 3 ninjas that belong to the first dojo 
+INSERT INTO ninjas (first_name, last_name, created_at, updated_at, age, dojo_id) 
+VALUES 
+('super', 'DODO', NOW(), NOW(), 25, 7), 
+('superWomen', 'DODO', NOW(), NOW(), 21, 7), 
+('SuperHero', 'DODO', NOW(), NOW(), 27, 7);
+
+-- #5  Create 3 ninjas that belong to the 2nd dojo 
+INSERT INTO ninjas (first_name, last_name, created_at, updated_at, age, dojo_id) 
+VALUES 
+('super2', 'DODO', NOW(), NOW(), 25, 8), 
+('superWomen2', 'DODO', NOW(), NOW(), 21, 8), 
+('SuperHero2', 'DODO', NOW(), NOW(), 27, 8);
+
+-- #4  Create 3 ninjas that belong to the first dojo 
+INSERT INTO ninjas (first_name, last_name, created_at, updated_at, age, dojo_id) 
+VALUES 
+('super3', 'DODO', NOW(), NOW(), 15, 9), 
+('superWomen3', 'DODO', NOW(), NOW(), 21, 9), 
+('SuperHero3', 'DODO', NOW(), NOW(), 20, 9);
+
+
+select * from ninjas 
+where dojo_id = 9;
+
+SELECT dojo.* 
+FROM dojo 
+INNER JOIN ninjas ON dojo.id = ninjas.dojo_id 
+ORDER BY ninjas.id DESC 
+LIMIT 1;

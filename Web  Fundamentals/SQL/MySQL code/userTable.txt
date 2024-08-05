@@ -1,0 +1,44 @@
+use user_schema;
+ALTER TABLE users ADD COLUMN email VARCHAR(255);
+
+SET SQL_SAFE_UPDATES = 1;
+DELETE  FROM users ;
+TRUNCATE TABLE users;
+
+
+-- #1 Retrieve all the users  
+SELECT * FROM users;
+
+-- #2 Rerieve the first user using their email address 
+select * from users
+order by id LIMIT 1 ;
+
+-- #3 Query: Retrieve the last user using their id  
+select *
+from users
+order by id desc  limit 1;
+
+-- #4 Change the user with id=3 so their last name is Pancakes  (need to use update )
+update users
+set last_name = "Pancakes"
+where id =  3;
+
+-- #5 : Delete the user with id=2 from the database  
+delete from users 
+where id = 1;
+
+-- #6  Get all the users, sorted by their first name  
+select * from users
+order by first_name;
+
+-- BONUS --> Get all the users, sorted by their first name in descending order
+select * from users
+order by first_name desc;
+
+
+
+INSERT INTO users (first_name, last_name, created_at, updated_at,email)
+VALUES 
+('Alice', 'Smith', '2024-07-26 15:30:00', '2024-07-26 15:30:00', "Alice123@gmail.com"),
+('Bob', 'Brown', '2024-07-26 15:30:00', '2024-07-26 15:30:00', "Bob123@gmail.com"),
+('Charlie', 'Johnson', '2024-07-26 15:30:00', '2024-07-26 15:30:00',"Charlie123@gmail.com");

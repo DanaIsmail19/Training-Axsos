@@ -12,7 +12,6 @@ A simple React application that fetches and displays a list of Pokémon names us
 ## Technologies Used
 
 - **React**: JavaScript library for building user interfaces.
-- **Axios**: Promise-based HTTP client for making requests.
 - **CSS**: For styling and layout.
 
 ## Installation

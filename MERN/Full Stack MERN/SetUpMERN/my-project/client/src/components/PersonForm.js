@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-export default () => {
+// Assign the arrow function to a variable called 'PersonForm'
+const PersonForm = () => {
     //keep track of what is being typed via useState hook
     const [firstName, setFirstName] = useState(""); 
     const [lastName, setLastName] = useState("");
@@ -14,21 +15,24 @@ export default () => {
             firstName,
             lastName
         })
-            .then(res=>console.log(res))
-            .catch(err=>console.log(err))
+            .then(res => console.log(res))
+            .catch(err => console.log(err))
     }
     //onChange to update firstName and lastName
     return (
         <form onSubmit={onSubmitHandler}>
             <p>
                 <label>First Name</label><br/>
-                <input type="text" onChange={(e)=>setFirstName(e.target.value)} value={firstName}/>
+                <input type="text" onChange={(e) => setFirstName(e.target.value)} value={firstName}/>
             </p>
             <p>
                 <label>Last Name</label><br/>
-                <input type="text" onChange={(e)=>setLastName(e.target.value)} value={lastName}/>
+                <input type="text" onChange={(e) => setLastName(e.target.value)} value={lastName}/>
             </p>
             <input type="submit"/>
         </form>
     )
 }
+
+// Export the PersonForm component as the default export
+export default PersonForm;

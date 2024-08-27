@@ -1,19 +1,27 @@
-require('dotenv').config()
-const express = require('express')
-const workoutRoutes = require ("./routes/workouts")
+require('dotenv').config();
+const express = require('express');
+const mongoose = require('mongoose');
+const workoutRoutes = require('./server/routes/product.routes');
 
-const app = express()
+const app = express();
 
 //APP .USE
-app.use((req , res , next)=>{
-    console.log(req.path,req.method)
-    next()
-})
+app.use((req, res, next) => {
+    console.log(req.path, req.method);
+    next();
+});
 
-// now need react to the request , need route handler
-app.use()
+// Now need react to the request, need route handler
+app.use('/api/workouts', workoutRoutes);
 
-//listen for requests
-app.listen(process.env.PORT , () =>{
-    console.log('listen on port 4000')
-})
+// Connect to db
+mongoose.connect(process.env.MONGODB_URI)
+    .then(() => { 
+        // Listen for requests
+        app.listen(process.env.PORT, () => {
+            console.log(`Listening on port ${process.env.PORT}`);
+        });
+    })
+    .catch((err) => {
+        console.error('Unable to connect to database:', err);
+    });

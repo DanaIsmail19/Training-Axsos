@@ -73,10 +73,11 @@ The application should now be running on `http://localhost:3000`.
 Here are some screenshots of the application in action:
 
 ### 1. Chat Interface
-![Chat Interface](./path-to-your-image-file.png)
+
+![Chat Interface]![Screenshot 2024-08-29 105600](https://github.com/user-attachments/assets/b12fc8e0-e662-4f9e-9015-158c398a0378)
 
 ### 2. Server Console
-![Server Console](./path-to-your-server-console-image.png)
+![Server Console]![Screenshot 2024-08-29 105813](https://github.com/user-attachments/assets/58912d3b-7066-42b9-a4eb-796f506c54f3)
 
 ## Contributing
 

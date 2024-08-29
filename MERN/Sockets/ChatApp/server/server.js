@@ -15,9 +15,10 @@ const io = socketIo(server, {
 
 app.use(cors());
 app.use(express.json());
+const MONGOURL = process.env.MONGO_URL;
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/mern-socket', {
+mongoose.connect((MONGOURL), {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }).then(() => console.log('MongoDB connected'))
